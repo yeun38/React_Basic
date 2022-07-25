@@ -1,8 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./App.css";
 import BucketList from "./BucketList";
-
+import "./style.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,9 +15,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>내 버킷리스트</h1>
-        {/* 컴포넌트를 넣어줍니다. */}
-        <BucketList list={this.state.list} />
+        <div className="container">
+          <h1>내 버킷리스트</h1>
+          <hr className="line" />
+          <BucketList list={this.state.list} />
+        </div>
       </div>
     );
   }
