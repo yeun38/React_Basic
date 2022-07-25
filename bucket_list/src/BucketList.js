@@ -1,6 +1,7 @@
 import React from "react"; // 리액트 패키지에서 리액트 객체 가져온다
 
 const BucketList = (props) => {
+  console.log(props);
   return <div>버킷 리스트</div>;
 };
 
