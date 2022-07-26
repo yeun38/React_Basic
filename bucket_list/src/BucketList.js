@@ -2,48 +2,44 @@
 import React from "react";
 import styled from "styled-components";
 
-// 함수형 컴포넌트는 이렇게 쓸 수도 있고
-// function Bucketlist(props){
-//     return (
-//         <div>버킷 리스트</div>
-//     );
-// }
+const Nemo = (props) => {
+  const [count, setCount] = React.useState(3);
+  console.log(count);
+  const nemo_count = Array.from({ length: count }, (v, i) => i);
 
-const BucketList = (props) => {
-  // Quiz 1: my_list에 ['a', 'b', 'c'] 대신 부모 컴포넌트가 넘겨준 값을 넣으려면 어떻게 해야할까요?
-  const my_lists = props.list;
-
-  // 컴포넌트가 뿌려줄 ui 요소(리엑트 엘리먼트라고 불러요.)를 반환해줍니다.
+  const addNemo = () => {
+    setCount(count + 1);
+  };
+  const removeNemo = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    } else {
+      window.alert("네모가 없어요");
+    }
+  };
   return (
-    <ListStyle>
-      {
-        // js의 내장 함수 중 하나인 map입니다. 리스트의 갯수만큼 => 오른쪽 구문을 반복해요.
-        // 자세한 사용법은 아래 링크를 확인해주세요.
-        // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-        my_lists.map((list, index) => {
-          // 콘솔을 확인해봅시다 :)
-          console.log(list);
-          return <Item key={index}>{list}</Item>;
-        })
-      }
-    </ListStyle>
+    <div>
+      {nemo_count.map((n, i) => {
+        return (
+          <div
+            key={i} //key임의지정 오류를 적게 보기 위함.
+            style={{
+              width: "150px",
+              height: "150px",
+              backgroundColor: "#ddd",
+              margin: "10px",
+            }}
+          >
+            nemonemo mongmumi
+          </div>
+        );
+      })}
+      <div>
+        <button onClick={addNemo}>하나 추가</button>
+        <button onClick={removeNemo}>하나 빼기</button>
+      </div>
+    </div>
   );
 };
 
-const ListStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-`;
-
-const Item = styled.div`
-padding: 16px;
-margin: 8px;
-background-color: aliceblue;
-font-weight: 700;
-}`;
-// 우리가 만든 함수형 컴포넌트를 export 해줍니다.
-// export 해주면 다른 컴포넌트에서 BucketList 컴포넌트를 불러다 쓸 수 있어요.
-export default BucketList;
+export default Nemo;
