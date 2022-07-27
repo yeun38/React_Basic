@@ -1,0 +1,7 @@
+.Layout {
+  max-width: 1200px;
+  min-width: 800px;
+  /* width: 100vw; */
+  height: 100vh;
+  margin: auto;
+}
