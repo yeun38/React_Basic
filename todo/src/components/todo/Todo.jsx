@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 function Todo({ user, onRemove, onToggle }) {
   console.log(user.id);
@@ -13,12 +14,21 @@ function Todo({ user, onRemove, onToggle }) {
         >
           삭제하기
         </button>
-        <button
-          className="todo-complete-button"
-          onClick={() => onToggle(user.id)}
-        >
-          완료
-        </button>
+        {user.isDone === false ? (
+          <button
+            className="todo-complete-button"
+            onClick={() => onToggle(user.id)}
+          >
+            완료
+          </button>
+        ) : (
+          <button
+            className="todo-complete-button-back"
+            onClick={() => onToggle(user.id)}
+          >
+            취소
+          </button>
+        )}
       </div>
     </div>
   );

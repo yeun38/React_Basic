@@ -26,15 +26,23 @@ function List({ users, setUsers }) {
     <div className="list-container">
       <h2 className="list-title">Working..🔥 </h2>
       <div className="list-wrapper">
-        {users.map((user) => (
-          <Todo user={user} onRemove={onRemove} onToggle={onToggle} />
-        ))}
+        {users.map((user) =>
+          user.isDone === false ? (
+            <Todo user={user} onRemove={onRemove} onToggle={onToggle} />
+          ) : (
+            " "
+          )
+        )}
       </div>
       <h2 className="list-title">Done..!!!!!! </h2>
       <div className="list-wrapper">
-        {users.map((user) => (
-          <Todo user={user} onRemove={onRemove} />
-        ))}
+        {users.map((user) =>
+          user.isDone === true ? (
+            <Todo user={user} onRemove={onRemove} onToggle={onToggle} />
+          ) : (
+            ""
+          )
+        )}
       </div>
     </div>
   );
