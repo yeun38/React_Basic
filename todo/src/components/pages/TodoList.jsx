@@ -17,6 +17,7 @@ function TodoList() {
       [name]: value,
     });
   };
+  console.log(title);
 
   const [users, setUsers] = useState([
     {
@@ -42,6 +43,7 @@ function TodoList() {
       isDone: false,
     };
     setUsers(users.concat(user));
+    // setUsers([...users, user]);
     setInputs({
       title: "",
       content: "",
