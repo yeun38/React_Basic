@@ -10,25 +10,16 @@ function Todo({ user, onRemove, onToggle }) {
       <div className="button-set">
         <button
           className="todo-delete-button"
-          onClick={() => onRemove(user.id)}
+          onClick={() => onRemove(user.id)} // 매개변수 유무에 따라 함수값 or 화살표함수
         >
           삭제하기
         </button>
-        {user.isDone === false ? (
-          <button
-            className="todo-complete-button"
-            onClick={() => onToggle(user.id)}
-          >
-            완료
-          </button>
-        ) : (
-          <button
-            className="todo-complete-button-back"
-            onClick={() => onToggle(user.id)}
-          >
-            취소
-          </button>
-        )}
+        <button
+          className="todo-complete-button"
+          onClick={() => onToggle(user.id)}
+        >
+          {user.isDone === false ? "완료하기" : "취소하기"}
+        </button>
       </div>
     </div>
   );
