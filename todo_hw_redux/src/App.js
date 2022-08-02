@@ -1,20 +1,21 @@
 import React from "react";
-import TodoListContainer from "./components/TodoListContainer";
-import styled from "styled-components";
-import AddForm from "./components/AddForm";
+// import Router from "./shared/Router";
+import { useNavigate } from "react-router-dom";
+
+// src/App.js
 
 const App = () => {
+  const navigate = useNavigate();
+
   return (
-    <StContainer>
-      <AddForm />
-      <TodoListContainer />
-    </StContainer>
+    <button
+      onClick={() => {
+        navigate("/works");
+      }}
+    >
+      works로 이동
+    </button>
   );
 };
 
 export default App;
-
-const StContainer = styled.section`
-  max-width: 1440px;
-  margin: 0 auto;
-`;
