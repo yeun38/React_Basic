@@ -6,6 +6,7 @@ import App from "../App";
 import { About } from "../pages/About";
 import { Contact } from "../pages/Contact";
 import Works from "../pages/Works";
+import Work from "../pages/work";
 
 // 2. Router 라는 함수를 만들고 아래와 같이 작성합니다.
 const Router = () => {
@@ -14,8 +15,9 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
         <Route path="works" element={<Works />} />
+        <Route path="works/:id" element={<Work />} />
+        <Route path="contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
