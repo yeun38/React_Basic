@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
 import { Todo } from "../Todo";
 import { Todo2 } from "../Todo2";
@@ -12,7 +11,7 @@ const List = () => {
     <ListContainer>
       <ListName>Working..🔥</ListName>
       <Todo />
-      <ListName>Working..🔥</ListName>
+      <ListName>Done..😵</ListName>
       <Todo2 />
     </ListContainer>
   );

@@ -68,14 +68,14 @@ const RmBtn = styled.button`
   width: 50%;
 `;
 
-const DoneBtn = styled.button`
-  background-color: #fff;
-  border: 2px solid green;
-  border-radius: 8px;
-  cursor: pointer;
-  height: 40px;
-  width: 50%;
-`;
+// const DoneBtn = styled.button`
+//   background-color: #fff;
+//   border: 2px solid green;
+//   border-radius: 8px;
+//   cursor: pointer;
+//   height: 40px;
+//   width: 50%;
+// `;
 
 const CancelBtn = styled.button`
   background-color: #fff;
