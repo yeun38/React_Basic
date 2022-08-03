@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
 import { todoRemove, todoToggle } from "../redux/modules/todos";
+import { useNavigate } from "react-router-dom";
+
 const Todo2 = () => {
   const todos = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
@@ -20,13 +22,21 @@ const Todo2 = () => {
       })
     );
   };
+  const navigate = useNavigate();
   return (
     <ListWrapper>
       {todos.map((todo) =>
         todo.isDone === true ? (
           <TodoContainer key={todo.id}>
-            <h1>{todo.title}</h1>
-            <p>{todo.content}</p>
+            <button
+              onClick={() => {
+                navigate(`/detail/${todo.id}`);
+              }}
+            >
+              상세보기
+            </button>
+            <TodoTitle>{todo.title}</TodoTitle>
+            <TodoContent>{todo.content}</TodoContent>
             <BtnContainer>
               <RmBtn onClick={() => onRemove(todo.id)}>삭제하기</RmBtn>
               <CancelBtn onClick={() => onToggle(todo.id)}>취소하기</CancelBtn>
@@ -66,6 +76,13 @@ const RmBtn = styled.button`
   cursor: pointer;
   height: 40px;
   width: 50%;
+`;
+
+const TodoTitle = styled.h1`
+  margin: 5px auto;
+`;
+const TodoContent = styled.p`
+  margin: 20px auto 40px;
 `;
 
 // const DoneBtn = styled.button`

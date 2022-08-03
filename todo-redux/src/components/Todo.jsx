@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
 import { todoRemove, todoToggle } from "../redux/modules/todos";
+
+import { useNavigate } from "react-router-dom";
+
 const Todo = () => {
   const todos = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
@@ -20,13 +23,22 @@ const Todo = () => {
       })
     );
   };
+
+  const navigate = useNavigate();
   return (
     <ListWrapper>
       {todos.map((todo) =>
         todo.isDone === false ? (
           <TodoContainer key={todo.id}>
-            <h1>{todo.title}</h1>
-            <p>{todo.content}</p>
+            <DetailBtn
+              onClick={() => {
+                navigate(`/detail/${todo.id}`);
+              }}
+            >
+              상세보기
+            </DetailBtn>
+            <TodoTitle>{todo.title}</TodoTitle>
+            <TodoContent>{todo.content}</TodoContent>
             <BtnContainer>
               <RmBtn onClick={() => onRemove(todo.id)}>삭제하기</RmBtn>
               <DoneBtn onClick={() => onToggle(todo.id)}>완료하기</DoneBtn>
@@ -77,11 +89,23 @@ const DoneBtn = styled.button`
   width: 50%;
 `;
 
-const CancelBtn = styled.button`
+const DetailBtn = styled.button`
   background-color: #fff;
-  border: 2px solid green;
-  border-radius: 8px;
-  cursor: pointer;
-  height: 40px;
-  width: 50%;
+  border: none;
+  padding: 0;
 `;
+
+const TodoTitle = styled.h1`
+  margin: 5px auto;
+`;
+const TodoContent = styled.p`
+  margin: 20px auto 40px;
+`;
+// const CancelBtn = styled.button`
+//   background-color: #fff;
+//   border: 2px solid green;
+//   border-radius: 8px;
+//   cursor: pointer;
+//   height: 40px;
+//   width: 50%;
+// `;
