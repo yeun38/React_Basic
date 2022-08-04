@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Todo } from "../Todo";
+import { Todo } from "../todo/Todo";
 import { Todo2 } from "../Todo2";
 // input으로 들어온 값을 List에 뿌리기
 

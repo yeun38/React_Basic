@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Header } from "../header/Header";
-import { Form } from "../Form";
+import { Form } from "../form/Form";
 import { List } from "../pages/List";
 
 const Layout = () => {
